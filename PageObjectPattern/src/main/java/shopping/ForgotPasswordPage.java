@@ -9,7 +9,6 @@ public class ForgotPasswordPage extends PageObject {
 
 	public ForgotPasswordPage(WebDriver driver) {
 		super(driver);
-
 	}
 
 	// Elements on the Page
@@ -21,5 +20,4 @@ public class ForgotPasswordPage extends PageObject {
 		this.forgotPass.click();
 		return new ResetPasswordPage(driver);
 	}
-
 }

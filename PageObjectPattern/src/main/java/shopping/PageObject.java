@@ -7,10 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 public class PageObject {
 	protected WebDriver driver;
 
-//Constructor	
+	//Constructor	
 	public PageObject(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);// PageFactory class locates all web elements using annotated selectors
 	}
-
 }

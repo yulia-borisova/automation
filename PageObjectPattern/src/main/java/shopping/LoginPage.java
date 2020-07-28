@@ -11,27 +11,25 @@ public class LoginPage extends PageObject {
 
 	// Elements on the Page
 	@FindBy(id = "email")
-	private WebElement email;
+	private WebElement emailInput;
 
 	@FindBy(id = "passwd")
-	private WebElement password;
+	private WebElement passwordInput;
 
 	@FindBy(id = "SubmitLogin")
 	private WebElement submitButton;
 
 	// Elements on the page to Create account
-
 	@FindBy(id = "email_create")
-	private WebElement emailCreate;
+	private WebElement emailRegisterInput;
 
 	@FindBy(id = "SubmitCreate")
-	private WebElement submitCreateButton;
+	private WebElement submitRegisterButton;
 
 	// Methods used on the page to LOGIN
-
 	public void enterCredentials(String email, String password) {
-		this.email.sendKeys(email);
-		this.password.sendKeys(password);
+		this.emailInput.sendKeys(email);
+		this.passwordInput.sendKeys(password);
 	}
 
 	public UserPage clickLoginButton() {
@@ -40,14 +38,12 @@ public class LoginPage extends PageObject {
 	}
 
 	// Methods to CREATE account
-
 	public void createNewUser(String emailCreate) {
-		this.emailCreate.sendKeys(emailCreate);
+		this.emailRegisterInput.sendKeys(emailCreate);
 	}
 
 	public SignInFormPage clickCreateButton() {
-		this.submitCreateButton.click();
+		this.submitRegisterButton.click();
 		return new SignInFormPage(driver);
 	}
-
 }

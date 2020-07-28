@@ -8,83 +8,80 @@ public class SignInFormPage extends PageObject {
 
 	public SignInFormPage(WebDriver driver) {
 		super(driver);
-
 	}
 
 	@FindBy(id = "customer_firstname")
-	private WebElement firstName;
+	private WebElement firstNameInput;
 
 	@FindBy(id = "customer_lastname")
-	private WebElement lastName;
+	private WebElement lastNameInput;
 
 	@FindBy(id = "passwd")
-	private WebElement password;
+	private WebElement passwordInput;
 
 	@FindBy(id = "days")
-	private WebElement day;
+	private WebElement dayInput;
 
 	@FindBy(id = "months")
-	private WebElement month;
+	private WebElement monthInput;
 
 	@FindBy(id = "years")
-	private WebElement year;
+	private WebElement yearInput;
 
 	@FindBy(id = "firstname")
-	private WebElement addressFirstName;
+	private WebElement addressFirstNameInput;
 
 	@FindBy(id = "lastname")
-	private WebElement addressLastName;
+	private WebElement addressLastNameInput;
 
 	@FindBy(id = "address1")
-	private WebElement address;
+	private WebElement addressInput;
 
 	@FindBy(id = "city")
-	private WebElement city;
+	private WebElement cityInput;
 
 	@FindBy(id = "id_state")
-	private WebElement state;
+	private WebElement stateInput;
 
 	@FindBy(id = "postcode")
-	private WebElement zip;
+	private WebElement zipInput;
 
 	@FindBy(id = "phone_mobile")
-	private WebElement phone;
+	private WebElement phoneInput;
 
 	@FindBy(id = "alias")
-	private WebElement aliasAddress;
+	private WebElement aliasAddressInput;
 
 	@FindBy(id = "submitAccount")
 	private WebElement registerButton;
 
-// Methods 
+	// Methods
 	public void enterMainCredentials(String firstName, String lastName, String password) {
-		this.firstName.sendKeys(firstName);
-		this.lastName.sendKeys(lastName);
-		this.password.sendKeys(password);
+		this.firstNameInput.sendKeys(firstName);
+		this.lastNameInput.sendKeys(lastName);
+		this.passwordInput.sendKeys(password);
 	}
 
 	public void setDOB(String day, String month, String year) {
-		this.day.sendKeys(day);
-		this.month.sendKeys(month);
-		this.year.sendKeys(year);
+		this.dayInput.sendKeys(day);
+		this.monthInput.sendKeys(month);
+		this.yearInput.sendKeys(year);
 	}
 
 	public void enterAddress(String addressFirstName, String addressLastName, String address, String city, String state,
 			String zip, String phone, String aliasAddress) {
-		this.addressFirstName.sendKeys(addressFirstName);
-		this.addressLastName.sendKeys(addressLastName);
-		this.address.sendKeys(address);
-		this.city.sendKeys(city);
-		this.state.sendKeys(state);
-		this.zip.sendKeys(zip);
-		this.phone.sendKeys(phone);
-		this.aliasAddress.sendKeys(aliasAddress);
+		this.addressFirstNameInput.sendKeys(addressFirstName);
+		this.addressLastNameInput.sendKeys(addressLastName);
+		this.addressInput.sendKeys(address);
+		this.cityInput.sendKeys(city);
+		this.stateInput.sendKeys(state);
+		this.zipInput.sendKeys(zip);
+		this.phoneInput.sendKeys(phone);
+		this.aliasAddressInput.sendKeys(aliasAddress);
 	}
 
 	public UserPage clickRegisterButton() {
 		this.registerButton.click();
 		return new UserPage(driver);
 	}
-
 }
-

@@ -15,16 +15,12 @@ public class TestDataGenerator {
 		String randomEmail = rand_number + staticName;
 		return randomEmail;
 	}
-
 	// Method to save Email to file
-	public void saveEmail(String UserEmail) throws IOException {
-		String file = "C:\\Users\\Yulia_Borisova\\Desktop\\Java_Study\\Projects\\Eclipse-Selenium\\PageObjectPattern\\src\\test\\resources\\testdata\\CreatedUserEmails";
-		BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
-
-		writer.write(UserEmail);
-		writer.append(",");
-		writer.close();
-
-	}
-
+		public  void saveEmail(String userEmail) throws IOException {
+			String file = "src\\test\\resources\\testdata\\CreatedUserEmails";
+			BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+			writer.write(userEmail);
+			writer.append(",");
+			writer.close();
+		}
 }
