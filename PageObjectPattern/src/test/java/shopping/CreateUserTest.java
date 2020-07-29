@@ -1,15 +1,8 @@
 package shopping;
 
 import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-
 import org.junit.Test;
-import org.openqa.selenium.support.PageFactory;
-
-import utils.TestDataGenerator;
-import utils.TestDataSaver;
 
 public class CreateUserTest extends MainTestBase {
 
@@ -18,7 +11,7 @@ public class CreateUserTest extends MainTestBase {
 		driver.get(baseUrl);
 		HomePage homePage = new HomePage(driver);
 		homePage.clickSignIn();
-		
+
 		LoginPage loginPage = new LoginPage(driver);
 		String newRegisterEmail = emailGenerator.getRandomEmail();
 		emailGenerator.saveEmail(newRegisterEmail);
