@@ -5,17 +5,21 @@ import org.junit.Test;
 
 public class ResetPasswordTest extends MainTestBase {
 
-	@Test
-	public void checkPasswordReset() {
-		driver.get(baseUrl + "/index.php?controller=authentication&back=my-account");
-		ForgotPasswordPage forgotPass = new ForgotPasswordPage(driver);
-		forgotPass.clickForgotPassword();
+    @Test
+    public void checkPasswordReset() {
+        driver.get(baseUrl);
+        HomePage homePage = new HomePage(driver);
+        homePage.clickSignIn();
 
-		ResetPasswordPage resetPass = new ResetPasswordPage(driver);
-		resetPass.inputEmail("testshopping@mailinator.com");
-		resetPass.clickResetButton();
+        ForgotPasswordPage forgotPass = new ForgotPasswordPage(driver);
+        forgotPass.clickForgotPassword();
 
-		// assert
-		assertTrue(resetPass.getConfirmationMessage().contains("email has been sent"));
-	}
+        ResetPasswordPage resetPass = new ResetPasswordPage(driver);
+        resetPass.inputEmail(emailGenerator.getCreatedEmail());
+        resetPass.clickResetButton();
+
+        // assert
+        assertTrue("message: Reset Password Test failed",
+                resetPass.getConfirmationMessage().contains("email has been sent"));
+    }
 }

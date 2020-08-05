@@ -8,24 +8,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import utils.TestDataGenerator;
+import utils.TestUser;
 
 public class MainTestBase {
-	protected static WebDriver driver;
-	protected static TestDataGenerator emailGenerator = new TestDataGenerator();
-	protected static String baseUrl = "http://automationpractice.com";
+    protected static WebDriver driver;
+    protected static TestDataGenerator emailGenerator = new TestDataGenerator();
+    protected static TestUser testUser = new TestUser();
+    protected static String baseUrl = "http://automationpractice.com";
 
-	@BeforeClass
-	public static void setup() throws IOException {
-		System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		System.out.println("before class working...");
-	}
+    @BeforeClass
+    public static void setup() throws IOException {
+        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        System.out.println("before class working...");
+    }
 
-	@AfterClass
-	public static void teardown() {
-		System.out.println("after class working...");
-		driver.quit();
-	}
+    @AfterClass
+    public static void teardown() {
+        System.out.println("after class working...");
+        driver.quit();
+    }
 }
