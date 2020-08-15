@@ -3,6 +3,7 @@ package shopping;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class LoginPage extends PageObject {
     public LoginPage(WebDriver driver) {
@@ -25,6 +26,17 @@ public class LoginPage extends PageObject {
 
     @FindBy(id = "SubmitCreate")
     private WebElement submitRegisterButton;
+
+    // Element on the page to Reset Password
+
+    @FindBy(how = How.LINK_TEXT, using = "Forgot your password?")
+    WebElement forgotPass;
+
+    // Method used to reset pass and navigate to a new page
+    public ResetPasswordPage clickForgotPassword() {
+        this.forgotPass.click();
+        return new ResetPasswordPage(driver);
+    }
 
     // Methods used on the page to LOGIN
     public void enterCredentials(String email, String password) {

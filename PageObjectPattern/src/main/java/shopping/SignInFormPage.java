@@ -80,6 +80,11 @@ public class SignInFormPage extends PageObject {
         this.aliasAddressInput.sendKeys(aliasAddress);
     }
 
+    public String getUrl() {
+        String url = driver.getCurrentUrl();
+        return url;
+    }
+
     public UserPage clickRegisterButton() {
         this.registerButton.click();
         return new UserPage(driver);

@@ -1,4 +1,5 @@
 #Author: Yulia
+@smoketest
 Feature: User Login
   As a User I am able to login to a website with valid credentials
 

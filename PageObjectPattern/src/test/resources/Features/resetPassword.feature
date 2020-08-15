@@ -11,4 +11,3 @@ Feature: Password Reset
     Examples: 
       | email                             |
       | 123ytestautomation@mailinator.com |
-      
