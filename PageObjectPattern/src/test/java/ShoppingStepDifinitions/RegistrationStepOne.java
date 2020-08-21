@@ -49,8 +49,9 @@ public class RegistrationStepOne {
     @Then("User is redirected to SignIn Form Page")
     public void getFormPage() {
         formPage = new SignInFormPage(driver);
-        String actualURL = formPage.getUrl();
-        String expectedURL = "http://automationpractice.com/index.php?controller=authentication&back=my-account";
-        assertEquals("message: Registration Step 1 failed, wrong actual URL", expectedURL, actualURL);
+        //String actualURL = formPage.getUrl();
+        String actualURL = driver.getCurrentUrl();
+        String expectedURL = "http://automationpractice.com/index.php?controller=authentication&back=my-accountt";
+        assertEquals("message: Registration is failed, wrong actual URL", expectedURL, actualURL);
     }
 }

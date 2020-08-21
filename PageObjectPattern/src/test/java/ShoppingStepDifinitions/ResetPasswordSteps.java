@@ -10,10 +10,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.*;
 import shopping.HomePage;
 import shopping.LoginPage;
+import shopping.MainTestBase;
 import shopping.ResetPasswordPage;
 
 public class ResetPasswordSteps {
     WebDriver driver;
+    MainTestBase testBase;
     HomePage homePage;
     LoginPage loginPage;
     ResetPasswordPage resetPassPage;
@@ -37,7 +39,7 @@ public class ResetPasswordSteps {
     @When("User clicks Forgot your passoword link")
     public void clickForgotLink() {
         loginPage = new LoginPage(driver);
-        loginPage.clickForgotPassword();
+        loginPage.clickForgotPasswordLink();
         System.out.println("Step 3: User clicks forgot pass link");
     }
 

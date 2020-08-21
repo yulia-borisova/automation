@@ -11,5 +11,5 @@ Feature: User Login
 
     Examples: 
       | email                             | password |
-      | 123ytestautomation@mailinator.com | Test1234 |
+      | ytestautomation@mailinator.com    | Test1234 |
       | 511ytestautomation@mailinator.com | Test1234 |

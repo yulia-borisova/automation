@@ -12,7 +12,7 @@ public class ResetPasswordTest extends MainTestBase {
         homePage.clickSignIn();
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.clickForgotPassword();
+        loginPage.clickForgotPasswordLink();
 
         ResetPasswordPage resetPass = new ResetPasswordPage(driver);
         resetPass.inputEmail(emailGenerator.getCreatedEmail());

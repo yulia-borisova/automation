@@ -15,16 +15,16 @@ public class ResetPasswordPage extends PageObject {
     @FindBy(id = "email")
     private WebElement email;
 
-    @FindBy(xpath = "//*[@id=\"form_forgotpassword\"]//button")
-    private WebElement retrievPasswordButton;
+    @FindBy(xpath = "//*[@id='form_forgotpassword']//button")
+    private WebElement retrievePasswordButton;
 
     // element that appears after email submit
-    @FindBy(how = How.XPATH, using = "//*[@class=\"alert alert-success\"]")
+    @FindBy(how = How.XPATH, using = "//*[@class='alert alert-success']")
     WebElement successMessage;
 
     // Methods
     public void clickRetrievePasswordButton() {
-        this.retrievPasswordButton.click();
+        this.retrievePasswordButton.click();
     }
 
     public void inputEmail(String email) {

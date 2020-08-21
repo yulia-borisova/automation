@@ -39,7 +39,7 @@ public class LoginSteps {
 
     @Then("User is navigated to My Account page")
     public void getUserAccountPage() {
-        System.out.println("Step4: User is on login page");
+        System.out.println("Step4: Check if User is on my Account Page");
         UserPage userPage = new UserPage(driver);
         assertEquals("assert:User Login failure", "MY ACCOUNT", userPage.getHeader());
     }

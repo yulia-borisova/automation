@@ -9,5 +9,5 @@ Feature: Password Reset
     Then User gets a confirmation message
 
     Examples: 
-      | email                             |
-      | 123ytestautomation@mailinator.com |
+      | email                          |
+      | ytestautomation@mailinator.com |

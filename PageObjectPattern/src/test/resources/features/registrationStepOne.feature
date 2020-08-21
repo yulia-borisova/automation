@@ -9,5 +9,5 @@ Feature: New User Registration
     Then User is redirected to SignIn Form Page
 
     Examples: 
-      | email                      |
-      | newuser1209206@mailinator.com |
+      | email                        |
+      | newuser120935@mailinator.com |

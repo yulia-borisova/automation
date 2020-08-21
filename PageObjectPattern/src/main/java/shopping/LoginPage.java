@@ -33,7 +33,7 @@ public class LoginPage extends PageObject {
     WebElement forgotPass;
 
     // Method used to reset pass and navigate to a new page
-    public ResetPasswordPage clickForgotPassword() {
+    public ResetPasswordPage clickForgotPasswordLink() {
         this.forgotPass.click();
         return new ResetPasswordPage(driver);
     }
