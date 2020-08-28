@@ -27,7 +27,7 @@ public class SendEmailReport {
         emailAttachment.setFrom("yulia.borisova.tr@gmail.com");
         emailAttachment.setSubject("TestMail");
         emailAttachment.setMsg("Hi Artem! Sending you my first Serenity report. Have a nice day:)");
-        emailAttachment.addTo("serenityreporttocheck28@mailinator.com");
+        emailAttachment.addTo("yulia.borisowa.qa@gmail.com");
 
         // add the attachment
         emailAttachment.attach(attachment);
