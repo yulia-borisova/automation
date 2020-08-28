@@ -211,7 +211,7 @@
 							</receivers>
 							<fileSets>
 								<fileSet>
-									<directory>C:\Users\Yulia_Borisova\git\serenitycucumber01\target\site\serenity</directory>
+									<directory>C:\Users\Yulia_Borisova\git\automation\PageObjectPattern\target\site\serenity</directory>
 									<includes>
 										<include>serenity-summary.html</include>
 										<include>index.html</include>
