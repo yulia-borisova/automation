@@ -184,6 +184,45 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin><!-- to send report to mail after test execution -->
+				<groupId>ch.fortysix</groupId>
+				<artifactId>maven-postman-plugin</artifactId>
+				<version>0.1.6</version>
+				<executions>
+					<execution>
+						<id>send a mail</id>
+						<phase>test</phase>
+						<goals>
+							<goal>send-mail</goal>
+						</goals>
+						<inherited>true</inherited>
+						<configuration>
+							<from>yulia.borisova.tr@gmail.com</from>
+							<subject>Serenity Summary Report</subject>
+							<failonerror>true</failonerror>
+							<mailhost>smtp.gmail.com</mailhost>
+							<mailport>465</mailport>
+							<mailuser>yulia.borisova.tr@gmail.com</mailuser>
+							<mailssl>true</mailssl> <!-- added -->
+							<mailAltConfig>true</mailAltConfig> <!-- added -->
+							<mailpassword>Qa123456</mailpassword>
+							<receivers>
+								<receiver>yulia.borisowa.qa@gmail.com</receiver>
+							</receivers>
+							<fileSets>
+								<fileSet>
+									<directory>C:\Users\Yulia_Borisova\git\serenitycucumber01\target\site\serenity</directory>
+									<includes>
+										<include>serenity-summary.html</include>
+										<include>index.html</include>
+										<include>summary.txt</include>
+									</includes>
+								</fileSet>
+							</fileSets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
