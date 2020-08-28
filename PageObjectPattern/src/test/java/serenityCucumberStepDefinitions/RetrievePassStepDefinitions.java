@@ -26,7 +26,6 @@ public class RetrievePassStepDefinitions {
     public void clickSignInButton() {
         System.out.println("Step 2");
         homePage.clickSignInButton();
-
     }
 
     @And("Clicks Forgot Password Link on Login Page")

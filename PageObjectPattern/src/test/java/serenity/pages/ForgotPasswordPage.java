@@ -6,12 +6,10 @@ import net.serenitybdd.screenplay.ensure.BooleanEnsure;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Step;
 
-//Elements and Methods on Forgot password page
 public class ForgotPasswordPage extends UIInteractionSteps {
 
     MainPage mainPage;
 
-    // Elements
     By userEmailField = By.id("email");
     By retrivePasswordButton = By.xpath("//*[@id='form_forgotpassword']//button");
     By successMessage = By.xpath("//*[@class='alert alert-success']");
