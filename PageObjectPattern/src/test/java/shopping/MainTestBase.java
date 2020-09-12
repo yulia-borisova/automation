@@ -14,7 +14,7 @@ public class MainTestBase {
     protected static WebDriver driver;
     protected static TestDataGenerator emailGenerator = new TestDataGenerator();
     protected static TestUser testUser = new TestUser();
-    protected static String baseUrl = "http://automationpractice.com";
+    public  String baseUrl = "http://automationpractice.com";
 
     @BeforeClass
     public static void setup() throws IOException {

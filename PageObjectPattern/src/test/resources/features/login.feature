@@ -1,4 +1,5 @@
 #Author: Yulia
+@smoketest
 Feature: User Login
   As a User I am able to login to a website with valid credentials
 
@@ -10,5 +11,5 @@ Feature: User Login
 
     Examples: 
       | email                             | password |
-      | 123ytestautomation@mailinator.com | Test1234 |
+      | ytestautomation@mailinator.com    | Test1234 |
       | 511ytestautomation@mailinator.com | Test1234 |

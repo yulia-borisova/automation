@@ -11,12 +11,12 @@ public class ResetPasswordTest extends MainTestBase {
         HomePage homePage = new HomePage(driver);
         homePage.clickSignIn();
 
-        ForgotPasswordPage forgotPass = new ForgotPasswordPage(driver);
-        forgotPass.clickForgotPassword();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.clickForgotPasswordLink();
 
         ResetPasswordPage resetPass = new ResetPasswordPage(driver);
         resetPass.inputEmail(emailGenerator.getCreatedEmail());
-        resetPass.clickResetButton();
+        resetPass.clickRetrievePasswordButton();
 
         // assert
         assertTrue("message: Reset Password Test failed",

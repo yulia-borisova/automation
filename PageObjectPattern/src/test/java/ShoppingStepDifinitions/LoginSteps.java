@@ -14,7 +14,7 @@ public class LoginSteps {
     WebDriver driver;
 
     @Given("User is on login page")
-    public void user_is_on_login_page() {
+    public void getLoginPage() {
         System.out.println("Step 1: User is on login page");
         System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -24,22 +24,22 @@ public class LoginSteps {
     }
 
     @When("User inputs valid {word} and {word}")
-    public void user_inputs_valid_login_and_password(String email, String password) {
+    public void inputCredentials(String email, String password) {
         System.out.println("Step 2: User inputs login and passowrd");
         LoginPage login = new LoginPage(driver);
         login.enterCredentials(email, password);
     }
 
     @And("clicks Login button")
-    public void clicks_login_button() {
+    public void clickLoginButton() {
         System.out.println("Step 3: User clicks login button");
         LoginPage login = new LoginPage(driver);
         login.clickLoginButton();
     }
 
     @Then("User is navigated to My Account page")
-    public void user_is_navigated_to_my_account_page() {
-        System.out.println("Step4: User is on login page");
+    public void getUserAccountPage() {
+        System.out.println("Step4: Check if User is on my Account Page");
         UserPage userPage = new UserPage(driver);
         assertEquals("assert:User Login failure", "MY ACCOUNT", userPage.getHeader());
     }
