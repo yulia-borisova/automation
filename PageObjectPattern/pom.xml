@@ -16,6 +16,7 @@
 		<serenity.maven.version>2.2.0</serenity.maven.version>
 		<serenity.cucumber.version>2.2.0</serenity.cucumber.version>
 		<cucumber.version>5.5.0</cucumber.version>
+		<slf4j.version>1.6.1</slf4j.version>
 		<encoding>UTF-8</encoding>
 		<tags></tags>
 		<parallel.tests>4</parallel.tests>
@@ -32,17 +33,21 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-rest-assured</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-email</artifactId>
 			<version>1.5</version>
-		</dependency>
-
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.0.13</version>
 		</dependency>
 		<!-- - To use Cucumber 4, exclude the old Cucumber 2 cucumber-core dependency 
 			from the serenity-core dependency - and include the Cucumber 4 cucumber-java 

@@ -28,6 +28,7 @@ public class SendEmailReport {
         emailAttachment.setSubject("TestMail");
         emailAttachment.setMsg("Hi Artem! Sending you my first Serenity report. Have a nice day:)");
         emailAttachment.addTo("yulia.borisowa.qa@gmail.com");
+        emailAttachment.addTo("laktionov_artem@ukr.net");
 
         // add the attachment
         emailAttachment.attach(attachment);
