@@ -7,10 +7,9 @@ Feature: Sending Get requests to /me endpoint
 
   Scenario Outline: Authorized user is able to send  Get request
     When User sends Get request to <endpoint>
-    Then Status code OK is received as <expectedStatus>
-    And all fields <requiredFields> with valid data <responseData> are present in the response
+    Then Response status OK is received
+    And required fields with valid data are present in the response: birthdate, country, email
 
     Examples: 
-      | endpoint                                      | requiredFields | responseData                | expectedStatus |
-      | /v1/me                                        | email         | yulia.borisowa.qa@gmail.com |            200 |
-   
+      | endpoint |
+      | /v1/me   |

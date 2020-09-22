@@ -6,7 +6,9 @@ import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(plugin = { "pretty" }, features = "classpath:features/serenitycucumber.features", glue = "serenityCucumberStepDefinitions")
-public class CucumberSerenityTestSuite {
+@CucumberOptions(plugin = { "pretty" },
+    features = "classpath:features",
+    glue = {"shopping\\serenitycucumber\\stepdefinitions","api\\stepdefinitions"})
+public class TestSuitRunner {
 
 }

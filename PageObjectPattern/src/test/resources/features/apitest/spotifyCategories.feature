@@ -5,13 +5,13 @@ Feature: Api GET request to v1/browse/categories endpoint
 
   Scenario: User is able to send Get request to v1/browse/categories
     When User sends  valid Get request
-    Then response is received
-    And fields present in the response
+    Then response status code200 200 is received
+    And field total with not null value is present in the response
 
   Scenario: User sends Get request with exceeded limit
-    When Request exceeds max limit
-    Then Status code400 is received
+    When Request equal or exceeds max limit 100
+    Then Status code400 400 is received
 
-  Scenario: User with invalid sends request
+  Scenario: User with invalid token sends request
     When request is sent with invalid token
-    Then Status code401 is received
+    Then Status code401 401 is received

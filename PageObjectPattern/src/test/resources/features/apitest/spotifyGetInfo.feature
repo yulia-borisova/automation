@@ -1,4 +1,5 @@
 # Application token is used for authorization
+#
 Feature: Getting  Information by sending API call
   
   Description: The purpose of the tests is to check GET requests to  https://api.spotify.com/ to retrieve shared data
@@ -8,10 +9,9 @@ Feature: Getting  Information by sending API call
 
   Scenario Outline: User sends Get request to retrieve shared info
     When User sends request to <endpoint>
-    Then <status> code is received
-    And all required fields <requiredFields> are present
+    Then response 200Ok is received
+    And all required fields are present: artist.id, album type,name
 
     Examples: 
-      | endpoint                | status | requiredFields |
-      | /v1/browse/new-releases |    200 | id             |
-      | /v1/browse/categories    |    200 | id             |
+      | endpoint                |
+      | /v1/browse/new-releases |

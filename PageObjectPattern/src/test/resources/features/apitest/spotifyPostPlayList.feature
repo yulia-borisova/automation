@@ -2,7 +2,8 @@
 Feature: Sending POST requests
   Description: The purpose of the test is to check POST requests with valid data
 
-  Background: Given: User is authorized and accessToken is received
+  Background: User generates Auth token
+    Given User has Auth token
 
   Scenario Outline: User sends POST request to create a new PlayList
     When post request is sent to <endpoint> with <playListName>
@@ -11,4 +12,4 @@ Feature: Sending POST requests
 
     Examples: 
       | endpoint                                      | expectedResult | playListName |
-      | /v1/users/czc11mg48dvwd16aeq0jofr3j/playlists |            201 | nsdf         |
+      | /v1/users/czc11mg48dvwd16aeq0jofr3j/playlists |            201 | Hurra        |

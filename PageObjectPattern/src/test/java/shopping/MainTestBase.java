@@ -28,6 +28,6 @@ public class MainTestBase {
     @AfterClass
     public static void teardown() {
         System.out.println("after class working...");
-        
+        driver.quit();
     }
 }
