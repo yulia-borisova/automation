@@ -6,10 +6,10 @@ Feature: Sending Get requests to /me endpoint
     Given User is authorized
 
   Scenario Outline: Authorized user is able to send  Get request
-    When User sends Get request to <endpoint>
-    Then Response status OK is received
-    And required fields with valid data are present in the response: birthdate, country, email
+    When User sends Get request to me endpoint
+    Then status code 200 is received
+    And required fields with valid data are present in the response: <birthdate>, <country>, <email>
 
     Examples: 
-      | endpoint |
-      | /v1/me   |
+      | birthdate  | country | email                       |
+      | 1973-04-07 | PL      | yulia.borisowa.qa@gmail.com |

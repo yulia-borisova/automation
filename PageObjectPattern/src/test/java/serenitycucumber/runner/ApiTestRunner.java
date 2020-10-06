@@ -7,7 +7,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {
-        "pretty" }, features = "classpath:features/apitest", glue = "apiSerenityCucumberStepDefinitions")
+        "pretty" }, features = "classpath:features/apitest", glue = "api.stepdefinitions")
 public class ApiTestRunner {
 
 }

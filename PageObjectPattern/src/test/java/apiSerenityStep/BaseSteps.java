@@ -6,13 +6,17 @@ import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Step;
 
 //class contains all basic steps
-public class BaseStep {
-    AppAuthStep auth;
-    
+public class BaseSteps {
+    AppAuthSteps auth;
+
     // base Urls
     String baseAppTokenUrl = "https://accounts.spotify.com/api/token";
     String baseUrl = "https://api.spotify.com";
     String categoriesEndpoint = "/v1/browse/categories";
+    String releasesEndpoint = "/v1/browse/new-releases";
+    String newReleasesEndpoint = "/v1/browse/new-releases";
+    String meEndpoint = "/v1/me";
+    String playListEndpoint = "/v1/users/{user_id}/playlists";
 
     // variables
     public Response responseGet;
@@ -29,30 +33,6 @@ public class BaseStep {
         String accessToken = Serenity.sessionVariableCalled("accessToken").toString();
         System.out.println("Sending get request with this token" + accessToken);
         responseGet = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
-    }
-
-    @Step("receiving Get response status")
-    public int getResponseStatusCode() {
-        int responseCode = responseGet.then().extract().statusCode();
-        return responseCode;
-    }
-
-    @Step("check post response status code")
-    public int getPostResponseStatusCode() {
-        int responseCode = responsePost.then().extract().statusCode();
-        return responseCode;
-    }
-
-    @Step("returning response after Post")
-    public Response returnPostResponse() {
-        Response response = (Response) responsePost.then().extract();
-        return response;
-    }
-
-    @Step("returning Get response")
-    public Response returnGetResponse() {
-        Response response = (Response) responseGet.then().extract();
-        return response;
     }
 
     @Step("sending POST request")

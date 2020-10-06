@@ -1,50 +1,42 @@
 package api.stepdefinitions;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-
-import org.junit.Assert;
-
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
 
-import apiSerenityStep.AppAuthStep;
-import apiSerenityStep.BaseStep;
-import apiSerenityStep.SpotifyApiStep;
+import apiSerenityStep.AppAuthSteps;
+import apiSerenityStep.SpotifyApiSteps;
 import io.cucumber.java.en.*;
+import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 
 public class PostPlayListStepDefinitions {
 
     @Steps
-    AppAuthStep auth;
+    AppAuthSteps auth;
 
     @Steps
-    SpotifyApiStep api;
+    SpotifyApiSteps api;
 
-    @Given("User has Auth token")
-    public void getToken() {
-        System.out.println("Step1: Getting token");
-        auth.getAuthorized();
+    @When("post request is sent to playList endpoint with user id and name{}")
+    public void createPlayList(String playListName) {
+        String id = "czc11mg48dvwd16aeq0jofr3j";
+        api.postPlayList(id, playListName);
     }
 
-    @When("post request is sent to {word} with {}")
-    public void createPlayList(String endpoint, String playListName) {
-        api.postPlayList(endpoint, playListName);
+    @And("field name is not empty in the response")
+    public void checkResponseFieldsNotNull() {
+        String result = api.responsePost.then().extract().body().jsonPath().getString("name");
+        assertFalse(result.isEmpty());
     }
 
-    @Then("response with {} is received")
-    public void getResponseStatusCode(int expectedResult) {
-        int actualResult = api.getPostResponseStatusCode();
-        assertEquals(expectedResult, actualResult);
-    }
-
-    @Then("new {} name and all required fields are present in the response: id, limit, display_name")
-    public void checkIfDataIsValid(String playListName) {
-        // api.returnPostResponseBody().getBody().jsonPath().getString("name");
-        ValidatableResponse result = api.returnPostResponse().then().assertThat().body("name", equalTo(playListName))
-                .body("owner.id", equalTo("czc11mg48dvwd16aeq0jofr3j")).body("owner.display_name", equalTo("Yulia"))
-                .body("tracks.limit", equalTo(100));
+    @And("new {} name and required fields are present in the response: {}, {}, {}")
+    public void checkPostResponseData(String playListName, String id, int limit, String displayName) {
+        ValidatableResponse result = api.responsePost.then().assertThat()
+                .body("name", equalTo(playListName))
+                .body("owner.id", equalTo(id))
+                .body("owner.display_name", equalTo(displayName))
+                .body("tracks.limit", equalTo(limit));   
     }
 }

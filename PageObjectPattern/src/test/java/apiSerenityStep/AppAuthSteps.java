@@ -7,14 +7,14 @@ import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 //Shared class for authentication, only app Token is working properly
-public class AppAuthStep {
+public class AppAuthSteps{
     String appToken;
     String baseAppTokenUrl = "https://accounts.spotify.com/api/token";
 
     // credentials and token variables
     String client_id = "07110c2def0d410d8a7894b92b6deca0";
     String client_secret = "cb71cb414028401086f78986e943636e";
-    String accessToken = "BQAsNpLTmLLRb-LzPk5Q8znn3uGG5SzrY3ZUqfleXtxmlzprr6CavuiKUSQ6bdeyjw0feM5DYRYHG2TnVGwrQ0jETPZ12D9ALhzKNI8bHNC1gG4VYkjSR1Gcmn5UXGK1Vk8UFAfcstxPYAnmgaz2vOijDLnobgOWchWTKD3wyeT4KKOfODedNBf3ev4OXHFvSXEsLp2RKUCWKm1jPWmQz3Wt59RnH9K9jJD7eHOq3qkSOVxaz8INw7t5s0VKPej-1I0t0xwKjjxFixZ45tpJ";
+    String accessToken = "BQCV1cu7IsgdZ1oNWqF-UqILI3xAxx_ShWu_CqydEhVJIAH_L7t8RAEhyG23R5Xbnl-YaAUNGAqg3Ni85YGde8mapPQT5X4cKx5Ws4r-3miy8Tunv0j_i7gVYjtcqTo-izzs-F5cPAqc-l9Yke0L8nMwy7BL01yN1lmoLtd26MErjqW5W9KnK6L-e8n3BLub038VqrZ6Jd4MAX95W2rT2uGBXOuOxP3tZ5G_Ajq6iSp_iZxGn27uKskrM0b2AHd7eZludbe8VfLx_vdSu711";
 
     @Step("retrieve app access token")
     public String getAppToken() {
@@ -26,7 +26,7 @@ public class AppAuthStep {
         return appToken;
     }
 
-    // useless step for now to implement later TO DO //
+    // TO DO: useless step for now to implement later 
     @Step("authorization, token generated manually on website")
     public String getAuthorized() {
         String accessToken = this.accessToken;

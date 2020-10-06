@@ -7,7 +7,7 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {
-        "pretty" }, features = "classpath:features/apitest/spotifyPOST.feature", glue = "apiSerenityStep")
-public class OneTestRunner {
+        "pretty" }, features = "classpath:features/serenitycucumber.features", glue = "shopping.serenitycucumber.stepdefinitions")
+public class ShoppingTestRunner {
 
 }

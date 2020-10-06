@@ -1,9 +1,0 @@
-[0920/120024.798:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0920/120228.426:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0920/121052.148:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0921/120024.804:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0921/120228.432:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0921/121052.157:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0922/120024.826:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0922/120228.439:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
-[0922/121052.163:ERROR:prune_crash_reports.cc(36)] PruneCrashReportDatabase: Failed to get pending reports
