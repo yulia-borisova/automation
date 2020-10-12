@@ -13,7 +13,7 @@ public class ReleasesStepDefinitions {
     SpotifyApiSteps apiStep;
 
     @When("User sends request to newreleases endpoint")
-    public void sendGetRequest() {
+    public void sendGetRequestToNewReleases() {
         System.out.println("Sending Get request...");
         apiStep.getNewReleases();
     }
