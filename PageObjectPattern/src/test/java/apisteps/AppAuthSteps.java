@@ -1,6 +1,7 @@
-package apiSerenityStep;
+package apisteps;
 
 import static org.hamcrest.Matchers.hasKey;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
@@ -14,7 +15,7 @@ public class AppAuthSteps{
     // credentials and token variables
     String client_id = "07110c2def0d410d8a7894b92b6deca0";
     String client_secret = "cb71cb414028401086f78986e943636e";
-    String accessToken = "BQCV1cu7IsgdZ1oNWqF-UqILI3xAxx_ShWu_CqydEhVJIAH_L7t8RAEhyG23R5Xbnl-YaAUNGAqg3Ni85YGde8mapPQT5X4cKx5Ws4r-3miy8Tunv0j_i7gVYjtcqTo-izzs-F5cPAqc-l9Yke0L8nMwy7BL01yN1lmoLtd26MErjqW5W9KnK6L-e8n3BLub038VqrZ6Jd4MAX95W2rT2uGBXOuOxP3tZ5G_Ajq6iSp_iZxGn27uKskrM0b2AHd7eZludbe8VfLx_vdSu711";
+    String accessToken = "BQCfB8ueLQovfCZ2a0A6rpAaiG9CEcyIBCb9U6hP8vlX8-ttJmn0H_qNoVaGbyGHqXuWnTMspiIYL7A8Ze2dGHQ41SIETM8yYSezXdL0wk8PBsxgsVkpIWvzSRM2hOcJyzBsfJgKV9Ty7FoQ7nfe2lokr467yxB9zxOnVK5TaphOFBMD_olDgh_9kfRrMQNgFjPCnwPWNNPuueDSqDKXSQRghAIji0tDYG54f00wXpWFqnU5pU3Su7YNf_4hf-Ii7xc0vaGnlmR3UNIwALEm";
 
     @Step("retrieve app access token")
     public String getAppToken() {

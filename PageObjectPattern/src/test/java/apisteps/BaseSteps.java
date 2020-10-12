@@ -1,4 +1,4 @@
-package apiSerenityStep;
+package apisteps;
 
 import io.restassured.response.Response;
 import net.serenitybdd.core.Serenity;
@@ -19,27 +19,19 @@ public class BaseSteps {
     String playListEndpoint = "/v1/users/{user_id}/playlists";
 
     // variables
-    public Response responseGet;
-    public Response responsePost;
+
+    public Response response;
 
     @Step("sending get request with manually retrieved token")
     public void sendGetRequest(String endpoint) {
         String accessToken = Serenity.sessionVariableCalled("token").toString();
-        responseGet = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
+        response = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
     }
 
     @Step("sending get request with app token")
     public void sendGetRequestWithAppToken(String endpoint) {
         String accessToken = Serenity.sessionVariableCalled("accessToken").toString();
         System.out.println("Sending get request with this token" + accessToken);
-        responseGet = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
-    }
-
-    @Step("sending POST request")
-    public void postRequest(String endpoint, String playListName) {
-        // For post manually retrieved token is used
-        String accessToken = Serenity.sessionVariableCalled("token").toString();
-        responsePost = SerenityRest.given().header("Authorization", "Bearer " + accessToken).header("Accept", "string")
-                .post(baseUrl + endpoint);
+        response = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
     }
 }

@@ -2,13 +2,11 @@ package api.stepdefinitions;
 
 import static org.junit.Assert.assertEquals;
 
-import apiSerenityStep.AppAuthSteps;
-import apiSerenityStep.BaseSteps;
-
-import apiSerenityStep.SpotifyApiSteps;
+import apisteps.AppAuthSteps;
+import apisteps.BaseSteps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.response.Response;
+import io.cucumber.java.en.When;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 
@@ -21,7 +19,7 @@ public class CommonStepDefinitions {
     @Steps
     BaseSteps step;
 
-    @Given("User is authorized")
+    @Given("User is authorized with manually retrieved token")
     public void getAuthorized() {
         System.out.println("Step1: Get manually retrieved token");
         auth.getAuthorized();
@@ -33,18 +31,16 @@ public class CommonStepDefinitions {
         String newToken = auth.getAppToken();
         System.out.println("IT IS A NEW TOKEN" + newToken);
     }
-
+    
+    @When("app access token gets expired")
+    public void sendRequestWithInvalidToken() {
+        auth.invalidateAccessToken();
+    }
+    
     @Then("status code {int} is received")
     public void getStatusCode(int expected) {
-        Response get = Serenity.sessionVariableCalled("responseGet");
-        int actualCode = get.then().extract().statusCode();
-        assertEquals("message: ACTUAL CODE IS WRONG", expected, actualCode);
-    }
-
-    @Then("post status code {int} is received")
-    public void getPostStatusCode(int expected) {
-        Response post = Serenity.sessionVariableCalled("responsePost");
-        int actualCode = post.then().extract().statusCode();
+        int actualCode = Serenity.sessionVariableCalled("responseCode");
+        System.out.println("current actual code is"+actualCode);
         assertEquals("message: ACTUAL CODE IS WRONG", expected, actualCode);
     }
 }
