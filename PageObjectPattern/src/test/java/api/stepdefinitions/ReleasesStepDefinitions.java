@@ -18,7 +18,7 @@ public class ReleasesStepDefinitions {
         apiStep.getNewReleases();
     }
 
-    @Then("Fields id, type and name are not null and present in the response")
+    @Then("Fields: id, type and name are not null")
     public void checkFieldsNotEmpty() {
         apiStep.response.then().assertThat()
                 .body("albums.items[0].artists[0].id", notNullValue())

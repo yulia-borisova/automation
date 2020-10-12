@@ -10,5 +10,5 @@ Feature: Integration tests for /v1/browse/new-releases endpoing
   Scenario: User sends Get request to retrieve new releases
     When User sends request to newreleases endpoint
     Then status code 200 is received
-    Then Fields id, type and name are not null and present in the response
+    Then Fields: id, type and name are not null
   
