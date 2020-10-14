@@ -39,7 +39,9 @@ public class CommonStepDefinitions {
     
     @Then("status code {int} is received")
     public void getStatusCode(int expected) {
-        int actualCode = Serenity.sessionVariableCalled("responseCode");
+      int actualCode = Serenity.sessionVariableCalled("responseCode");
+       // int actualCode = (int) step.sessionResponseCode; // not working
+        System.out.println("THIS IS ACTUAL CODE RECEIVED"+actualCode);
         assertEquals("message: ACTUAL CODE IS WRONG", expected, actualCode);
     }
 }

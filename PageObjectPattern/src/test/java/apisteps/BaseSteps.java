@@ -21,7 +21,12 @@ public class BaseSteps {
     // variables
 
     public Response response;
-
+    
+    //Serenity variable
+   public  String sessionAppToken = Serenity.sessionVariableCalled("accessToken");
+   public String sessionManualToken = Serenity.sessionVariableCalled("token");
+   public Object sessionResponseCode = Serenity.sessionVariableCalled("responseCode");//- not working
+    
     @Step("sending get request with manually retrieved token")
     public void sendGetRequest(String endpoint) {
         String accessToken = Serenity.sessionVariableCalled("token").toString();

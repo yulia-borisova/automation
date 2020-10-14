@@ -12,8 +12,8 @@ public class PostPlayListStepDefinitions {
     @Steps
     SpotifyApiSteps api;
 
-    @When("post request is sent to playList endpoint with user id{} and name{}")
-    public void createPlayList(String id,String playListName) {
+    @When("post request is sent to playList endpoint with user id {} and name {}")
+    public void createPlayList(String id, String playListName) {
         api.postPlayList(id, playListName);
     }
 
