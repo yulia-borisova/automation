@@ -15,7 +15,7 @@ public class AppAuthSteps {
     // credentials and token variables
     String client_id = "07110c2def0d410d8a7894b92b6deca0";
     String client_secret = "cb71cb414028401086f78986e943636e";
-    String accessToken = "BQCzUzh_6YGyXfv38pRtze3mHa-stWEGtem48MoKZOLulGepDZzKiYm4vBqMQ84LY8q0Cj0ag2-Bs4e809u0v4W7oHkLKJfT8zvjgaUsrzBnL1GSfZkqTgmC0fJ3rSdDBvCz8JTK561oVFmKitOfSCDm_wZ7s75LEwLIYsRJJis3R179oYDpd7iwloxMM5eHR65zTWsLpdLvzYajY7lBFCCqidcmba_LB_3C8dW5UStBL2CXK0DIZ80Vi8-IKlwF_1QkyBm8hipnyu1_2QCI";
+    String accessToken = "BQBbLPke63ub47d-kmY9DTQzSFEo8M_eF8zVZDZobjF0f1i2w_ujl3LwzXuSdSbYNdfQZJf2z8ikqhPxXT55Grx7TT3ZOnpsvbK1WFHC_4U0PnbPm5zu1talRuLzN_noIw-FfAAoy9MXNPXJyiSmRayZWzYxJoPOvUddsfY4O_mTakDJE2gyrmZLVomtLyQcP0tPK9FusfvFqq8xgZk1j9fBhDxQtAuEJPHwV4yrvhHZHp7H8DhTl0fSVMk69KYlD6PvlqbQQnIn02q2qJkk";
 
     @Step("retrieve app access token")
     public String getAppToken() {
@@ -23,7 +23,7 @@ public class AppAuthSteps {
                 .param("grant_type", "client_credentials").param("application", "application/x-www-form-urlencoded")
                 .when().post(baseAppTokenUrl).andReturn().then().body("$", hasKey("access_token")).extract().response();
         appToken = responseToken.path("access_token").toString();
-        Serenity.setSessionVariable("accessToken").to(this.appToken);
+        Serenity.setSessionVariable(BaseSteps.ACCESS_TOKEN).to(this.appToken);
         return appToken;
     }
 
@@ -32,14 +32,14 @@ public class AppAuthSteps {
     public String getAuthorized() {
         String accessToken = this.accessToken;
         System.out.println("IT IS TOKEN :" + accessToken);
-        Serenity.setSessionVariable("token").to(this.accessToken);
+        Serenity.setSessionVariable(BaseSteps.ACCESS_MANUAL_TOKEN).to(this.accessToken);
         return accessToken;
     }
 
     @Step("invalidate access token")
     public String invalidateAccessToken() {
         appToken = "123";
-        Serenity.setSessionVariable("accessToken").to(this.appToken);
+        Serenity.setSessionVariable(BaseSteps.ACCESS_TOKEN).to(this.appToken);
         System.out.println("Invalid token is" + accessToken);
         return accessToken;
     }

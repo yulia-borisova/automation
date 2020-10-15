@@ -17,7 +17,8 @@ public class SpotifyApiSteps extends BaseSteps {
         Map<String, Object> map = new HashMap<>();
         map.put("name", playListName);
         map.put("public", true);
-        response = SerenityRest.given().body(map).header("Authorization", "Bearer " + sessionManualToken)
+        String appToken = Serenity.sessionVariableCalled(ACCESS_MANUAL_TOKEN);
+        response = SerenityRest.given().body(map).header("Authorization", "Bearer " + appToken)
                 .header("Accept", "string").pathParam("user_id", id).post(baseUrl + playListEndpoint);
         Serenity.setSessionVariable("responseCode").to(response.getStatusCode());
         return response;
@@ -26,30 +27,34 @@ public class SpotifyApiSteps extends BaseSteps {
 
     @Step("sending GET request to newReleases endpoint with app token")
     public Response getNewReleases() {
-        response = SerenityRest.given().auth().oauth2(sessionAppToken).get(baseUrl + releasesEndpoint);
-        Serenity.setSessionVariable("responseCode").to(response.getStatusCode());
+        String appToken = Serenity.sessionVariableCalled(ACCESS_TOKEN);
+        response = SerenityRest.given().auth().oauth2(appToken).get(baseUrl + releasesEndpoint);
+        Serenity.setSessionVariable(RESPONSE_CODE).to(response.getStatusCode());
         return response;
     }
 
     @Step("sending GET request to categories endpoint with app token")
     public Response getCategories() {
-        response = SerenityRest.given().auth().oauth2(sessionAppToken).get(baseUrl + categoriesEndpoint);
-        Serenity.setSessionVariable("responseCode").to(response.getStatusCode());
+        String appToken = Serenity.sessionVariableCalled(ACCESS_TOKEN);
+        response = SerenityRest.given().auth().oauth2(appToken).get(baseUrl + categoriesEndpoint);
+        Serenity.setSessionVariable(RESPONSE_CODE).to(response.getStatusCode());
         return response;
     }
 
     @Step("sending GET categories request with app token and MAX Limit = {0}")
     public Response getRequestWithMaxLimit(int limit) {
-        response = SerenityRest.given().auth().oauth2(sessionAppToken).param("limit", limit)
+        String appToken = Serenity.sessionVariableCalled(ACCESS_TOKEN);
+        response = SerenityRest.given().auth().oauth2(appToken).param("limit", limit)
                 .get(baseUrl + categoriesEndpoint);
-        Serenity.setSessionVariable("responseCode").to(response.getStatusCode());
+        Serenity.setSessionVariable(RESPONSE_CODE).to(response.getStatusCode());
         return response;
     }
 
     @Step("sending GET request with simple token to me endpoint")
     public Response getRequestToMe() {
-        response = SerenityRest.given().auth().oauth2(sessionManualToken).get(baseUrl + meEndpoint);
-        Serenity.setSessionVariable("responseCode").to(response.getStatusCode());
+        String appToken = Serenity.sessionVariableCalled(ACCESS_MANUAL_TOKEN);
+        response = SerenityRest.given().auth().oauth2(appToken).get(baseUrl + meEndpoint);
+        Serenity.setSessionVariable(RESPONSE_CODE).to(response.getStatusCode());
         return response;
     }
 }

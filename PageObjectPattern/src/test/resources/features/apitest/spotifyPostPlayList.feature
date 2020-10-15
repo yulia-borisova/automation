@@ -13,4 +13,4 @@ Feature: Integration tests for /v1/users/{user_id}/playlists endpoint
 
     Examples: 
       | playListName | id                        | limit | display_name |
-      | test14       | czc11mg48dvwd16aeq0jofr3j |   100 | Yulia        |
+      | test17       | czc11mg48dvwd16aeq0jofr3j |   100 | Yulia        |

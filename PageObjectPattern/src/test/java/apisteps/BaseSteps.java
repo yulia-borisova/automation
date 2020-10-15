@@ -19,24 +19,27 @@ public class BaseSteps {
     String playListEndpoint = "/v1/users/{user_id}/playlists";
 
     // variables
-
     public Response response;
     
-    //Serenity variable
-   public  String sessionAppToken = Serenity.sessionVariableCalled("accessToken");
-   public String sessionManualToken = Serenity.sessionVariableCalled("token");
-   public Object sessionResponseCode = Serenity.sessionVariableCalled("responseCode");//- not working
+    //Serenity global session variables
+   public static final String RESPONSE_CODE = "responseCode";
+   public static final String ACCESS_TOKEN = "access_token";
+   public static final String ACCESS_MANUAL_TOKEN = "token";
     
     @Step("sending get request with manually retrieved token")
-    public void sendGetRequest(String endpoint) {
-        String accessToken = Serenity.sessionVariableCalled("token").toString();
+    public Response sendGetRequest(String endpoint) {
+        String accessToken = Serenity.sessionVariableCalled(ACCESS_MANUAL_TOKEN).toString();
         response = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
+        Serenity.setSessionVariable(RESPONSE_CODE).to(response.getStatusCode());
+        return response;
     }
 
     @Step("sending get request with app token")
-    public void sendGetRequestWithAppToken(String endpoint) {
-        String accessToken = Serenity.sessionVariableCalled("accessToken").toString();
+    public Response sendGetRequestWithAppToken(String endpoint) {
+        String accessToken = Serenity.sessionVariableCalled(ACCESS_TOKEN).toString();
         System.out.println("Sending get request with this token" + accessToken);
         response = SerenityRest.given().auth().oauth2(accessToken).get(baseUrl + endpoint);
+        Serenity.setSessionVariable(RESPONSE_CODE).to(response.getStatusCode());
+        return response;
     }
 }
