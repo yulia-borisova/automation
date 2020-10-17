@@ -1,4 +1,4 @@
-package ShoppingStepDifinitions;
+package shopping.stepdifinitions;
 
 import io.cucumber.java.en.*;
 import shopping.LoginPage;

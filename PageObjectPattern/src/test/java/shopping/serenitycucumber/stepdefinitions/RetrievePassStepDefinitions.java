@@ -1,4 +1,4 @@
-package serenityCucumberStepDefinitions;
+package shopping.serenitycucumber.stepdefinitions;
 
 import io.cucumber.java.en.*;
 import net.thucydides.core.annotations.Steps;

@@ -1,4 +1,4 @@
-package ShoppingStepDifinitions;
+package shopping.stepdifinitions;
 
 import io.cucumber.java.en.*;
 //Step definition just to execute Cucumber scenario 

@@ -1,4 +1,4 @@
-package ShoppingStepDifinitions;
+package shopping.stepdifinitions;
 
 import static org.junit.Assert.assertTrue;
 
